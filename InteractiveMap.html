@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+
+<style>
+
+#mapid { position: absolute; top: 0; bottom: 0; left: 0; right: 0;}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="mapid"></div>
+<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+
+<script>
+
+var mymap = L.map('mapid').setView([50.794567, -1.100324], 13);
+
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(mymap);
+
+   
+L.control.scale({
+    position: 'bottomright',
+    scale: '150%',
+}).addTo(mymap);
+
+L.Control.Watermark=L.Control.extend({
+    onAdd:function(){
+        var img = L.DomUtil.create('img');
+        img.src = 'https://i.ibb.co/2cGY2hq/Asset-3-3x-copy.png';
+        img.style.width = '200px';
+        return img;
+    },
+    onRemove:function(map){},
+});
+
+L.control.watermark = function(opts){
+    return new L.Control.Watermark(opts)
+}
+L.control.watermark({position:'topleft'}).addTo(mymap);
+
+/*var icon = L.icon.extend({
+    options: {
+        iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+        iconSize: [38,40],
+        iconAnchor:[22,94],
+        popupAnchor: [0,-90],
+    }
+    })
+
+    var NewIcon = new icon({iconUrl:'https://leafletjs.com/examples/custom-icons/leaf-red.png'});
+*/
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        iconSize:     [26, 35],
+        shadowSize:   [50, 64],
+        iconAnchor:   [22, 94],
+        shadowAnchor: [4, 62],
+        popupAnchor:  [-3, -76]
+    }
+});
+
+var greenIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/rTYQd99.png'}),
+    redIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/mRqUVvL.png'}),
+    orangeIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/gJHk1ee.png'});
+    blueIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/k9E6e44.png'});
+    blackIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/6HocG5Z.png'});
+    greyIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/Yoi3X7l.png'});
+    azulIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/xYW0uRF.png'});
+    butterIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/KDYTbrV.png'});
+    appleIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/SdkdGWK.png'});
+    bleachIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/zYFHlwH.png'});
+    trapIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/3ZFoZTJ.png'});
+    bootIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/uGIJIyN.png'});
+    boyIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/kqWGZOZ.png'});
+    topIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/nJVV3o9.png'});
+    botIcon = new LeafIcon({iconUrl: 'https://i.imgur.com/ozLIyra.png'});
+    o = new LeafIcon({iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-orange.png'});
+
+// 1HMS Temeraire Sports Ground       
+var marker = L.marker([50.802905, -1.042867],{icon:greenIcon}).addTo(mymap).bindPopup("<b>Milton Common</b><br>Milton Common, once formerly a tidal inlet known as Milton Lake (and even earlier, “Felder Lake” from which the current Velder Avenue’s name is derived). It is reclaimed land, formed by landfill tipping in the 1950s through to 1970.  The perimeter of the former Milton Lake can still be traced on a modern map, as the A2030 Eastern Road borders it to the north and Moorings Way road to the south. Moorings Way was so called because of the large number of houseboats that were moored alongside the edge of the Lake. ");
+//2HMS Victory
+var marker2 = L.marker([50.801520, -1.109609],{icon:redIcon}).addTo(mymap).bindPopup("<b>HMS Victory</b><br>HMS Victory is a 104-gun first-rate ship of the line of the Royal Navy, ordered in 1758, laid down in 1759 and launched in 1765. She is best known for her role as Lord Nelson's flagship at the Battle of Trafalgar on 21 October 1805.");
+//3Mary Rose Museum
+var marker3 = L.marker([50.802460, -1.108505],{icon:blackIcon}).addTo(mymap).bindPopup("<b>Mary Rose Museum</b><br>The Mary Rose Museum is a historical museum located at Historic Dockyards in Portsmouth in the United Kingdom run by the Mary Rose Trust.");
+//4HMS Warrior
+var marker4 = L.marker([50.798765, -1.107816],{icon:orangeIcon}).addTo(mymap).bindPopup("<b>HMS Warrior</b><br>HMS Warrior is a 40-gun steam-powered armoured frigate built for the Royal Navy in 1859–1861. She was the name ship of the Warrior-class ironclads.");
+//5Emirates Spinnaker Tower
+var marker5 = L.marker([50.795604, -1.108342],{icon:blueIcon}).addTo(mymap).bindPopup("<b>Spinnaker Tower</b><br>The Spinnaker Tower is a 170 metres landmark observation tower in Portsmouth, England. It is the centrepiece of the redevelopment of Portsmouth Harbour, which was supported by a National Lottery grant. Its shape was chosen by Portsmouth residents from a selection.");
+//6Royal Navy Submarine Museum
+var marker6 = L.marker([50.796785, -1.103644],{icon:greyIcon}).addTo(mymap).bindPopup("<b>Millgate House</b><br>Millgate House is a residential high rise block in Butcher's Street, St. George's Square in Portsea built in 1963. This drawing with its detail and accuracy would have brought the building to life before it was even built.");
+//7Round and Square Towers
+var marker7 = L.marker([50.790145, -1.104346],{icon:azulIcon}).addTo(mymap).bindPopup("<b>The Cathedral</b><br>The cathedral dates back to the 12th century.It was built in the shape of a cross or cruciform with the tower above the middle section. In the 12th and 13th centuries it was used as a lighthouse and a lookout for ships. Portsmouth became a city in 1926 and St. Thomas' became a cathedral in 1932. The painting here shows the cathedral after Second World War bombings, looking fairly undamaged. On either side of the road there is the bombed-out ruins of houses and shops. ");
+//8Portsmouth Cathedral
+//9Charles Dickens' Birthplace MuseumYYY
+var marker9 = L.marker([50.807065, -1.087141],{icon:butterIcon}).addTo(mymap).bindPopup("<b>Charles Dickens' Birthplace Museum</b><br>Charles Dickens' Birthplace Museum is a writer's house museum in Landport, Portsmouth, England situated at the birthplace of the eminent English author Charles Dickens; and as such played a prominent part in the 2012 bicentennial celebrations.");
+//10Portsmouth City Museum and Art Gallery
+var marker1a = L.marker([50.791477, -1.097746],{icon:appleIcon}).addTo(mymap).bindPopup("<b>Portsmouth Museum and Art Gallery</b><br>Portsmouth Museum is a local museum in Museum Road in the city of Portsmouth, southern England. It is one of six museums run by Portsmouth Museums, part of Portsmouth City Council. The museum is housed in a Grade II listed building.");
+//11The D-Day Story
+var marker2a = L.marker([50.779533, -1.089730],{icon:bleachIcon}).addTo(mymap).bindPopup("<b>The D-Day Story</b><br>The D-Day Story is a visitor attraction located in Southsea, Portsmouth in Hampshire, England. It tells the story of Operation Overlord during the Normandy D-Day landings.");
+//12Kingsrd
+var marker3a = L.marker([50.791021, -1.093827],{icon:trapIcon}).addTo(mymap).bindPopup("<b>King's Road, Southsea</b><br>This area was extensively bombed in Second World War and what was left was demolished in the 1960s. This is a proposal drawing for a new housing development in the Kings Road area.");
+//14Southsea Castle
+var marker5a = L.marker([50.777811, -1.088984],{icon:bootIcon}).addTo(mymap).bindPopup("<b>Southsea Castle</b><br>Wilfred Avalon Jefferies taught at Portsmouth College of Art. He was a member of the Society of Marine Artists and exhibited in the opening exhibition at Cumberland House in 1931.");
+//15FrattonPark
+var marker6a = L.marker([50.796376, -1.064689],{icon:boyIcon}).addTo(mymap).bindPopup("<b>Fratton Park</b><br>Fratton Park is an association football ground in the English port city of Portsmouth in the United Kingdom. It remains as the original home of Portsmouth F.C., who were founded on 5 April 1898.");
+//16Victoria Park
+var marker7a = L.marker([50.799389, -1.094147],{icon:topIcon}).addTo(mymap).bindPopup("<b>Victoria Park</b><br>Victoria Park is a public park located just to the north of Portsmouth Guildhall, adjacent to Portsmouth and Southsea railway station and close to the city centre in Portsmouth, Hampshire. It was officially opened on 25 May 1878 and was the first public park to be opened in Portsmouth.");
+//17Houseboats at Milton
+var marker8a = L.marker([50.797271, -1.091691],{icon:botIcon}).addTo(mymap).bindPopup("<b>Portsmouth Guildhall</b><br>Portsmouth Guildhall is a multi-use building in the centre of Portsmouth, UK, located on a pedestrian square close to the Portsmouth and Southsea railway station. Constructed in 1890, the building was known as Portsmouth Town Hall until 1926.");
+//13Portsmouth Naval Memorial
+var marker4a = L.marker([50.782396, -1.095854],{icon:icon}).addTo(mymap).bindPopup("<b></b><br>");
+
+var polygon = L.polygon([
+    [50.792906, -1.108671],
+    [50.790447, -1.108910],
+    [50.788521, -1.105680],
+    [50.789802, -1.102910],
+    [50.792033, -1.105365]
+    ]).addTo(mymap);
+    var polygon2 = L.polygon([
+    [50.786170, -1.099626],
+    [50.781195, -1.094309],
+    [50.780055, -1.088816],
+    [50.782701, -1.089084],
+    [50.787883, -1.094824]
+    ]).addTo(mymap);
+
+    
+    L.marker([51.5, -0.09], {icon: greenIcon}).addTo(mymap).bindPopup("I am a green leaf.");
+
+    // HMS Temeraire Sports Ground  
+    marker.bindPopup("<b>HMS Temeraire Sports Ground</b><br>A state of the art sports centre located on Burnaby Road in Portsmouth.").openPopup();
+    //HMS Victory
+    marker2.bindPopup("<b>HMS Victory</b><br>HMS Victory is a 104-gun first-rate ship of the line of the Royal Navy, ordered in 1758, laid down in 1759 and launched in 1765. She is best known for her role as Lord Nelson's flagship at the Battle of Trafalgar on 21 October 1805.").openPopup();
+    //Mary Rose Museum
+    marker3.bindPopup("<b>Mary Rose Museum</b><br>The Mary Rose is home to the Mary Rose and the thousands of artefacts that were recovered from the Solent. Built between 1509 and 1511, The Mary Rose was one of the first ships able to fire a broadside, and was a firm favourite of King Henry VIII.").openPopup();
+    //HMS Warrior
+    marker4.bindPopup("<b>HMS Warrior</b><br>HMS Warrior is a 40-gun steam-powered armoured frigate built for the Royal Navy in 1859–1861. She was the name ship of the Warrior-class ironclads.").openPopup();
+    //Emirates Spinnaker Tower
+    marker5.bindPopup("<b>Emirates Spinnaker Tower</b><br>The Spinnaker Tower previously known as the Emirates Spinnaker Tower is a 170 metres landmark observation tower in Portsmouth, England. It is the centrepiece of the redevelopment of Portsmouth Harbour, which was supported by a National Lottery grant. Its shape was chosen by Portsmouth residents from a selection.").openPopup();
+    //Royal Navy Submarine Museum
+    marker6.bindPopup("<b>Royal Navy Submarine Museum</b><br>The Royal Navy Submarine Museum at Gosport is a maritime museum tracing the international history of submarine development from the age of Alexander the Great to the present day, and particularly the history of the Royal Navy Submarine Service from the navy's first submarine, Holland 1, to the nuclear-powered Vanguard-class submarines.").openPopup();
+    //Round and Square Towers
+    marker7.bindPopup("<b>Round and Square Towers</b><br>The Round Tower was built around 1418 to defend the entrance to Portsmouth Harbour and prevent raids on the city by French ships.").openPopup();
+    //Portsmouth Cathedral
+    marker8.bindPopup("<b>Portsmouth Cathedral</b><br>The Cathedral Church of St Thomas of Canterbury, commonly known as Portsmouth Cathedral, is an Anglican cathedral church in the centre of Old Portsmouth in Portsmouth, England. It is the cathedral of the Diocese of Portsmouth and the seat of the bishop of Portsmouth.").openPopup();
+    //Charles Dickens' Birthplace Museum
+    marker9.bindPopup("<b>Charles Dickens' Birthplace Museum</b><br>Charles Dickens' Birthplace Museum is a writer's house museum in Landport, Portsmouth, England situated at the birthplace of the eminent English author Charles Dickens; and as such played a prominent part in the 2012 bicentennial celebrations.").openPopup();
+    //Portsmouth City Museum and Art Gallery
+    marker1a.bindPopup("<b>Portsmouth City Museum and Art Gallery</b><br>Portsmouth Museum is a local museum in Museum Road in the city of Portsmouth, southern England. It is one of six museums run by Portsmouth Museums, part of Portsmouth City Council. The museum is housed in a Grade II listed building.").openPopup();
+    //The D-Day Story
+    marker2a.bindPopup("<b>The D-Day Story</b><br>The D-Day Story is a visitor attraction located in Southsea, Portsmouth in Hampshire, England. It tells the story of Operation Overlord during the Normandy D-Day landings.").openPopup();
+    //The Queen's Hotel
+    marker3a.bindPopup("<b>The Queen's Hotel</b><br>Queens Hotel is a luxury hotel in Southsea, Portsmouth, Hampshire. The current Queen's Hotel is placed on the site of Southsea house, built in 1861 by architect Augustus Livesay, which was built for Sir John and Lady Morris.").openPopup();
+    //Portsmouth Naval Memorial
+    marker4a.bindPopup("<b>Portsmouth Naval Memorial</b><br>The Portsmouth Naval Memorial, sometimes known as Southsea Naval Memorial, is a war memorial in Portsmouth, Hampshire, England, on Southsea Common beside Clarence Esplanade, between Clarence Pier and Southsea Castle.").openPopup();
+    //Southsea Castle
+    marker5a.bindPopup("<b>Southsea Castle</b><br>Southsea Castle, historically also known as Chaderton Castle, South Castle and Portsea Castle, is an artillery fort originally constructed by Henry VIII on Portsea Island, Hampshire, in 1544.").openPopup();
+    //The Rose Gardens
+    marker6a.bindPopup("<b>The Rose Gardens</b><br>Pretty Rose Gardens worth visting while exploring the southsea area.").openPopup();
+    //Navy Command HQ
+    marker7a.bindPopup("<b>Navy Command HQ</b><br>The Maritime Warfare Centre is an alliance of Servicemen, scientists, and analysts, whose sole driving purpose is to create battle-winning tactics for the Royal Navy. The unit is made up of some 120 people, split roughly equally between civilian and military.").openPopup();
+    
+    polygon.bindPopup("<b>Old Portsmouth</b><br>Old Portsmouth is a district of the city of Portsmouth. It is the area covered by the original medieval town of Portsmouth as planned by Jean de Gisors. It is situated in the south west corner of Portsea Island.</br>").openPopup();
+    polygon2.bindPopup("<b>Southsea</b><br>Southsea is a popular resort with seafront gardens and a long beach, plus funfair rides at South Parade Pier, an aquarium, and a model village. Built by Henry VIII, moated Southsea Castle has cannons and views across the Solent. Edwardian landmarks include the Kings Theatre, a restored playhouse for mainstream shows and a slapstick Christmas pantomime. There are plenty of pubs, tea rooms, and curry houses inland.</br>").openPopup();
+
+</script>
+
+</body>
+
+</html>
